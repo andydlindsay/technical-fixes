@@ -40,3 +40,29 @@ npm install -g @mapbox/node-pre-gyp
 brew install sqlite
 npm install sqlite3 --build-from-source --sqlite=/opt/homebrew/opt/sqlite --save
 ```
+
+# Vagrant Issues
+
+### Issues running cypress on vagrant, please follow these steps:
+
+```sh
+# Update Ubuntu packages
+$ sudo apt-get update
+
+# Install dependencies for Ubuntu:
+$ sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+
+# Exit vagrant
+$ exit
+
+# Connect back to vagrant
+$ vagrant ssh
+
+# Go back to your jungle folder
+$ cd path/to/your/jungle
+
+# Run Cypress in CI mode
+$ bin/rails cypress:run
+
+# Screenshots of failed attempts and videos will be in the tmp/  folder of your Jungle !
+```
