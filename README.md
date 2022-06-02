@@ -66,3 +66,14 @@ $ bin/rails cypress:run
 
 # Screenshots of failed attempts and videos will be in the tmp/  folder of your Jungle !
 ```
+
+### Rails server won't reload when files change
+
+```rb
+# Add the following to config/environments/development.rb
+
+# config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+config.file_watcher = ActiveSupport::FileUpdateChecker
+
+# FileUpdateChecker will detect by polling the change of the file.
+```
